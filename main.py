@@ -13,5 +13,7 @@ webpage_url = input()
 
 webpage = requests.get(webpage_url)
 
-print(webpage)
-#returns Reponse[200] which means success 
+soup = BeautifulSoup(webpage.text, 'lxml')
+
+print(soup)
+#returns a messy text including all html tags 
