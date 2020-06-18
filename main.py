@@ -13,7 +13,10 @@ webpage_url = input()
 
 webpage = requests.get(webpage_url)
 
+fwebpage_name = webpage_url.replace('/','_') + '.html'
+
 soup = BeautifulSoup(webpage.text, 'lxml')
 
-print(soup)
-#returns a messy text including all html tags 
+with open(fwebpage_name, 'w') as f:
+    f.write(soup.prettify())
+#SUCCESS! Offline parsing is now possible. The entire webpage is saved locally. 
